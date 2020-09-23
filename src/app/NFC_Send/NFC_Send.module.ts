@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './NFC_Send.page';
 
 import { HomePageRoutingModule } from './NFC_Send-routing.module';
+import { SendService } from './send.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -12,8 +14,13 @@ import { HomePageRoutingModule } from './NFC_Send-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    HttpClientModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
+  providers: [
+    HttpClient,
+    SendService
+  ]
 })
 export class HomePageModule {}

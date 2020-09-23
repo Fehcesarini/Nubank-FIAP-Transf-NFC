@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { env } from 'process';
+import { EnvioModel } from './models/envio.model';
+import { SendService } from './send.service';
 
 
 @Component({
@@ -27,10 +30,18 @@ export class HomePage {
     { icon: 'phone-portrait-outline', text: 'Configurações de app'},
   ];
 
-  constructor() {}
+  constructor(private sendService: SendService) {}
 
   pushPage() {
     this.navCtrl.push();
-}
+  }
 
+  enviar() {
+    const envio = new EnvioModel();
+    envio.DispositivoId = '4576f38e-999e-45a6-ad1b-57b121b0207a';
+    envio.Valor = 10;
+    this.sendService.post(envio).subscribe(response => {
+      console.log(response);
+    });
+  }
 }

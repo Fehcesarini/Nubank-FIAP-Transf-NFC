@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: 'NFC_Select',
     loadChildren: () => import('./NFC_Select/NFC_Select.module').then( m => m.HomePageModule)
-  },  
+  },
   {
     path: '',
     redirectTo: 'NFC_Send',
