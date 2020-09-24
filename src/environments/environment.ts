@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apis: {
-    transferenciaNFCEnvio: 'https://localhost:5001'
+    transferenciaNFCEnvio: 'https://localhost:8080'
   }
 };
 
