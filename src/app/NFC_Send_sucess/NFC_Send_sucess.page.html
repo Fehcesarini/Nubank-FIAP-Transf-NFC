@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      <img src="/assets/logo.png">
+
+      <span>Carlos Araujoo</span>
+
+      <ion-button color="light" fill="clear" size="small">
+        <ion-icon slot="icon-only" name="arrow-down-outline"></ion-icon>
+      </ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="primary">
+  <div class="background">
+    <div class="bank-information ion-text-center">
+        
+      <span>Transfêrencia realizada com Sucesso.</span>
+ 
+    </div>  
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-slides [options]="slidesOptions">
+      
+      <ion-slide >
+        
+        <div class="container ion-text-left" (click)="enviar()">
+          
+          <ion-icon name="wallet-outline"></ion-icon>
+        
+          <span>Transferência NFC</span>
+        
+        </div>
+      
+      </ion-slide>
+    
+      <ion-slide *ngFor="let option of options">
+        <div class="container ion-text-left">
+          <ion-icon [name]="option.icon"></ion-icon>
+        
+          <span>{{ option.text }}</span>
+        </div>       
+      </ion-slide>      
+    </ion-slides>
+  </ion-toolbar>
+</ion-footer>
