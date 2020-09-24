@@ -36,16 +36,30 @@
   </div>
 </ion-content>
 
+
 <ion-footer class="ion-no-border">
   <ion-toolbar color="primary">
     <ion-slides [options]="slidesOptions">
+      
+      <ion-slide >
+        
+        <div class="container ion-text-left" [routerLink]="['/NFC_Select']">
+          
+          <ion-icon name="wallet-outline"></ion-icon>
+        
+          <span>Transferência NFC</span>
+        
+        </div>
+      
+      </ion-slide>
+    
       <ion-slide *ngFor="let option of options">
         <div class="container ion-text-left">
           <ion-icon [name]="option.icon"></ion-icon>
         
           <span>{{ option.text }}</span>
-        </div>
-      </ion-slide>
+        </div>       
+      </ion-slide>      
     </ion-slides>
   </ion-toolbar>
 </ion-footer>

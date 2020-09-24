@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  public options: Array<any> = [
-    { icon: 'wallet-outline', text: 'Transferência NFC' },
+  public options: Array<any> = [    
     { icon: 'person-add-outline', text: 'Indicar amigos' },
     { icon: 'phone-portrait-outline', text: 'Recarga de celular' },
     { icon: 'wallet-outline', text: 'Depositar' },

@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
+import { Component, EventEmitter } from '@angular/core';
+import { IonInput } from '@ionic/angular';
 import { env } from 'process';
 import { EnvioModel } from './models/envio.model';
 import { SendService } from './send.service';
+
 
 
 @Component({
@@ -11,6 +14,7 @@ import { SendService } from './send.service';
 })
 export class HomePage {
   [x: string]: any;
+  valorTransf: number;
   public options: Array<any> = [    
     { icon: 'person-add-outline', text:'Indicar amigos' },
     { icon: 'phone-portrait-outline', text:'Recarga de celular' },
@@ -30,16 +34,16 @@ export class HomePage {
     { icon: 'phone-portrait-outline', text: 'Configurações de app'},
   ];
 
+
+
   constructor(private sendService: SendService) {}
 
-  pushPage() {
-    this.navCtrl.push();
-  }
+
 
   enviar() {
     const envio = new EnvioModel();
     envio.DispositivoId = '4576f38e-999e-45a6-ad1b-57b121b0207a';
-    envio.Valor = 10;
+    envio.Valor = this.valorTransf;
     this.sendService.post(envio).subscribe(response => {
       console.log(response);
     });
