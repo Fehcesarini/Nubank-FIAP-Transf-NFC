@@ -1,20 +1,22 @@
-import { CurrencyPipe } from '@angular/common';
-import { Component, EventEmitter } from '@angular/core';
-import { IonInput } from '@ionic/angular';
-import { env } from 'process';
-import { EnvioModel } from './models/envio.model';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ReceiveModel } from './models/receive.model';
 import { SendService } from './send.service';
+import { ReceiveResponseModel } from './models/receive-response.model';
 
 
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'NFC_Send.page.html',
-  styleUrls: ['NFC_Send.page.scss'],
+  templateUrl: 'NFC_Send_Receive.page.html',
+  styleUrls: ['NFC_Send_Receive.page.scss'],
 })
 export class HomePage {
-  [x: string]: any;
-  valorTransf: number;
+  [x: string]: any;  
+
+
+  constructor(private sendService: SendService) {}
+  recebido = this.valorTransf;
   public options: Array<any> = [    
     { icon: 'person-add-outline', text:'Indicar amigos' },
     { icon: 'phone-portrait-outline', text:'Recarga de celular' },
@@ -33,20 +35,14 @@ export class HomePage {
     { icon: 'card-outline', text: 'Configurar cartão'},
     { icon: 'phone-portrait-outline', text: 'Configurações de app'},
   ];
-
-
-
-  constructor(private sendService: SendService) {}
-
-
-
-  enviar() {
-    const envio = new EnvioModel();
-    envio.DispositivoId = '4576f38e-999e-45a6-ad1b-57b121b0207a';
-    envio.Valor = this.valorTransf;
-    envio.nome = 'Carlos Araujo';
-    this.sendService.post(envio).subscribe(response => {
+  
+  
+  public  receber = new ReceiveResponseModel();    
+ public Receber() {   
+     this.sendService.get().subscribe(response => {
+      this.receber = response;      
       console.log(response);
+      return response;
     });
   }
 }

@@ -1,0 +1,74 @@
+ion-header {
+  ion-toolbar{
+    --min-height: 100px;
+
+    ion-title{
+      align-items: flex-end;
+      img{
+        width:45px;
+        vertical-align: middle;
+        margin-right: 10px;
+
+      }
+
+      span{
+        font-size: 22px;
+      }
+
+      ion-button{
+        display: block;
+      }
+    }
+  }
+}
+
+ion-content{
+  .background{
+    .bank-information{
+      .qrcode{
+        width: 400px;
+        margin: 40% auto;
+        display: block;
+      }
+
+      span{
+        margin: 5px 0;
+        font-size: 14px;
+        display: block;
+      }
+    }
+
+    ion-list{
+      margin-top: 32px;
+      background: transparent;
+
+      ion-item{
+        color: #FFF;
+        --background: transparent;
+      }
+    }
+  }
+}
+
+ion-footer{
+  ion-slide{
+    .container{
+      width: 100%;
+      height: 100px;
+      background: var(--ion-color-primary-tint);
+      padding: 10px;
+      margin: 0 5px; 
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      ion-icon{
+        font-size: 24px;
+      }
+
+      span{
+        font-size: 16px;
+      }
+    }
+  }
+}

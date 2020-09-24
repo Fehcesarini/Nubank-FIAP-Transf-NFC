@@ -3,6 +3,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [  
   {
+    path: 'NFC_Send_Receive',  
+    loadChildren: () => import('./NFC_Send_Receive/NFC_Send_Receive.module').then( m => m.HomePageModule)
+  },
+  {
     path: 'NFC_Send_Aproximar',  
     loadChildren: () => import('./NFC_Send_Aproximar/NFC_Send_Aproximar.module').then( m => m.HomePageModule)
   },
