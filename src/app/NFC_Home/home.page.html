@@ -1,0 +1,65 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      <img src="/assets/logo.png">
+
+      <span>Carlos Araujo</span>
+
+      <ion-button color="light" fill="clear" size="small">
+        <ion-icon slot="icon-only" name="arrow-down-outline"></ion-icon>
+      </ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="primary">
+  <div class="background">
+    <div class="bank-information ion-text-center">
+      <img class="qrcode" src="/assets/qrcode.png">
+
+      <span>Banco <strong>000 - Nu Pagamentos S.A.</strong></span>
+      <span>Agência <strong>0000</strong></span>
+      <span>Conta <strong>00000000-0</strong></span>
+    </div>
+    
+    <ion-list lines="full">
+      <ion-item *ngFor="let item of itens" detail>
+        <ion-icon slot="start" [name]="item.icon"></ion-icon>
+
+        <ion-label>{{ item.text }}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="logout" color="light" expand="block" fill="outline">
+      <strong>SAIR DA CONTA</strong>
+    </ion-button>
+  </div>
+</ion-content>
+
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-slides [options]="slidesOptions">
+      
+      <ion-slide >
+        
+        <div class="container ion-text-left" [routerLink]="['/NFC_Select']">
+          
+          <ion-icon name="wallet-outline"></ion-icon>
+        
+          <span>Transferência NFC</span>
+        
+        </div>
+      
+      </ion-slide>
+    
+      <ion-slide *ngFor="let option of options">
+        <div class="container ion-text-left">
+          <ion-icon [name]="option.icon"></ion-icon>
+        
+          <span>{{ option.text }}</span>
+        </div>       
+      </ion-slide>      
+    </ion-slides>
+  </ion-toolbar>
+</ion-footer>

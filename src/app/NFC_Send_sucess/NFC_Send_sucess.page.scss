@@ -22,17 +22,12 @@ ion-header {
   }
 }
 
-
-ion-content{  
+ion-content{
   .background{
-    .ValorTransf{
-      align-items: flex-end;
-      align-content: center;
-    }
     .bank-information{
       .qrcode{
-        width: 100px;
-        margin: 16px auto;
+        width: 400px;
+        margin: 40% auto;
         display: block;
       }
 
@@ -41,7 +36,6 @@ ion-content{
         font-size: 14px;
         display: block;
       }
-      
     }
 
     ion-list{

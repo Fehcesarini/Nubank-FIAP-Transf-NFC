@@ -1,13 +1,23 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ReceiveModel } from './models/receive.model';
+import { SendService } from './send.service';
+import { ReceiveResponseModel } from './models/receive-response.model';
+
+
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: 'NFC_Send_Receive.page.html',
+  styleUrls: ['NFC_Send_Receive.page.scss'],
 })
 export class HomePage {
-  public options: Array<any> = [
-    { icon: 'wallet-outline', text:'Tranferência NFC' },
+  [x: string]: any;  
+
+
+  constructor(private sendService: SendService) {}
+  recebido = this.valorTransf;
+  public options: Array<any> = [    
     { icon: 'person-add-outline', text:'Indicar amigos' },
     { icon: 'phone-portrait-outline', text:'Recarga de celular' },
     { icon: 'wallet-outline', text:'Depositar' },
@@ -25,7 +35,14 @@ export class HomePage {
     { icon: 'card-outline', text: 'Configurar cartão'},
     { icon: 'phone-portrait-outline', text: 'Configurações de app'},
   ];
-
-  constructor() {}
-
+  
+  
+  public  receber = new ReceiveResponseModel();    
+ public Receber() {   
+     this.sendService.get().subscribe(response => {
+      this.receber = response;      
+      console.log(response);
+      return response;
+    });
+  }
 }

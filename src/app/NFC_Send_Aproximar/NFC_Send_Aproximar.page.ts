@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { EnvioModel } from './models/envio.model';
+import { SendService } from './send.service';
+
+
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'NFC_Select.page.html',
-  styleUrls: ['NFC_Select.page.scss'],
+  templateUrl: 'NFC_Send_Aproximar.page.html',
+  styleUrls: ['NFC_Send_Aproximar.page.scss'],
 })
 export class HomePage {
-  public options: Array<any> = [
+  [x: string]: any;  
+  recebido = this.valorTransf;
+  public options: Array<any> = [    
     { icon: 'person-add-outline', text:'Indicar amigos' },
     { icon: 'phone-portrait-outline', text:'Recarga de celular' },
     { icon: 'wallet-outline', text:'Depositar' },
@@ -25,6 +32,17 @@ export class HomePage {
     { icon: 'phone-portrait-outline', text: 'Configurações de app'},
   ];
 
-  constructor() {}
 
+  constructor(private sendService: SendService) {}
+  
+
+
+  enviar() {
+    const envio = new EnvioModel();
+    envio.DispositivoId = '4576f38e-999e-45a6-ad1b-57b121b0207a';
+    envio.Valor = 10;
+    this.sendService.post(envio).subscribe(response => {
+      console.log(response);
+    });
+  }
 }
